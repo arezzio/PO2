@@ -1,0 +1,26 @@
+# Online Python - IDE, Editor, Compiler, Interpreter
+def add_in_base(op1, op2, base):
+    decimal_op1 = int(op1, base)
+    decimal_op2 = int(op2, base)
+    
+    decimal_sum = decimal_op1 + decimal_op2
+    
+    if decimal_sum == 0:
+        return '0'
+    
+    result = ''
+    
+    while decimal_sum > 0:
+        result = str(decimal_sum % base) + result
+        decimal_sum //= base
+        
+    return result
+
+# Main program
+if __name__ == "__main__":
+    op1 = input('Enter 1st number: ')
+    op2 = input('Enter 2nd number: ')
+    base = int(input('Enter base: '))
+    
+    result = add_in_base(op1, op2, base)
+    print(f"The sum of {op1} and {op2} in base {base} is: {result}")
